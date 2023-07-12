@@ -1,4 +1,5 @@
 let connection;
+
 const setupInput = (conn) => {
   connection = conn;
   const stdin = process.stdin;
