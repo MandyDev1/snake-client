@@ -8,19 +8,19 @@ const connect = function () {
     port: PORT
   });
 
+  // event handler for successful connection
+  conn.on("connect", () => {
+    console.log("Successfully connected to game server");
+    // send the "Name" message
+    conn.write("Name: BOB");
+  });
+
   // interpret incoming data as text
   conn.setEncoding("utf8");
 
   // event handler for receiving data
   conn.on("data", (data) => {
     console.log("Server says:", data);
-  });
-
-  // event handler for successful connection
-  conn.on("connect", () => {
-    console.log("Successfully connected to game server");
-    // send the "Name" message
-    conn.write("Name: BOB");
   });
 
   return conn;
